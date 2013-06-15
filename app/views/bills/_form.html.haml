@@ -1,22 +1,20 @@
-= form_for @bill do |f|
-  - if @bill.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@bill.errors.count, "error")} prohibited this bill from being saved:"
-      %ul
-        - @bill.errors.full_messages.each do |msg|
-          %li= msg
-
-  .field
-    = f.label :for
-    = f.text_field :for
-  .field
-    = f.label :start
-    = f.date_select :start
-  .field
-    = f.label :end
-    = f.date_select :end
-  .field
-    = f.label :amount
-    = f.text_field :amount
-  .actions
-    = f.submit 'Save'
+= form_for @bill, :html => { :class => 'form-horizontal' } do |f|
+  .control-group
+    = f.label :for, :class => 'control-label'
+    .controls
+      = f.text_field :for, :class => 'text_field'
+  .control-group
+    = f.label :start, :class => 'control-label'
+    .controls
+      = f.date_select :start, :class => 'date_select'
+  .control-group
+    = f.label :end, :class => 'control-label'
+    .controls
+      = f.date_select :end, :class => 'date_select'
+  .control-group
+    = f.label :amount, :class => 'control-label'
+    .controls
+      = f.text_field :amount, :class => 'text_field'
+  .form-actions
+    = f.submit nil, :class => 'btn btn-primary'
+    = link_to t('.cancel', :default => t("helpers.links.cancel")), bills_path, :class => 'btn'

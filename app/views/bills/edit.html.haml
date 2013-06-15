@@ -1,7 +1,4 @@
-%h1 Editing bill
-
-= render 'form'
-
-= link_to 'Show', @bill
-\|
-= link_to 'Back', bills_path
+- model_class = Bill
+.page-header
+  %h1=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize
+= render :partial => "form"
