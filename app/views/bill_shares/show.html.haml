@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b User:
+  = @bill_share.user_id
+%p
+  %b Percent:
+  = @bill_share.percent
+%p
+  %b Bill:
+  = @bill_share.bill_id
+
+= link_to 'Edit', edit_bill_share_path(@bill_share)
+\|
+= link_to 'Back', bill_shares_path

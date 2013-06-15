@@ -1,4 +1,7 @@
 Cohorts::Application.routes.draw do
+  resources :bill_shares
+
+
   resources :bills
 
 

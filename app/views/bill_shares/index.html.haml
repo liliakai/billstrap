@@ -1,0 +1,23 @@
+%h1 Listing bill_shares
+
+%table
+  %tr
+    %th User
+    %th Percent
+    %th Bill
+    %th
+    %th
+    %th
+
+  - @bill_shares.each do |bill_share|
+    %tr
+      %td= bill_share.user_id
+      %td= bill_share.percent
+      %td= bill_share.bill_id
+      %td= link_to 'Show', bill_share
+      %td= link_to 'Edit', edit_bill_share_path(bill_share)
+      %td= link_to 'Destroy', bill_share, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Bill share', new_bill_share_path
