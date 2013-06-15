@@ -1,0 +1,25 @@
+%h1 Listing bills
+
+%table
+  %tr
+    %th For
+    %th Start
+    %th End
+    %th Amount
+    %th
+    %th
+    %th
+
+  - @bills.each do |bill|
+    %tr
+      %td= bill.for
+      %td= bill.start
+      %td= bill.end
+      %td= bill.amount
+      %td= link_to 'Show', bill
+      %td= link_to 'Edit', edit_bill_path(bill)
+      %td= link_to 'Destroy', bill, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Bill', new_bill_path

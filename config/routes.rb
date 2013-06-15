@@ -1,4 +1,7 @@
 Cohorts::Application.routes.draw do
+  resources :bills
+
+
   resources :members
 
 
