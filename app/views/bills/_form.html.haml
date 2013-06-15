@@ -1,4 +1,11 @@
 = form_for @bill, :html => { :class => 'form-horizontal' } do |f|
+  - if @bill.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@bill.errors.count, "error")} prohibited this bill from being saved:"
+      %ul
+        - @bill.errors.full_messages.each do |msg|
+          %li= msg
+
   .control-group
     = f.label :for, :class => 'control-label'
     .controls
